@@ -2,7 +2,7 @@
 
 namespace App\Http\Responsitory;
 
-use App\Models\User;
+use App\Domains\Auth\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -21,5 +21,10 @@ class UserResponsitory extends BaseResponsitory
             throw $th;
         }
         return false;
+    }
+
+    public function checkClient($where = array())
+    {
+        return DB::table('oauth_clients')->where($where)->first();
     }
 }

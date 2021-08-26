@@ -19,6 +19,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Lab404\Impersonate\Models\Impersonate;
 use Spatie\Permission\Traits\HasRoles;
+use Laravel\Passport\HasApiTokens;
 
 /**
  * Class User.
@@ -35,7 +36,8 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
         UserAttribute,
         UserMethod,
         UserRelationship,
-        UserScope;
+        UserScope,
+        HasApiTokens;
 
     public const TYPE_ADMIN = 'admin';
     public const TYPE_USER = 'user';
@@ -59,6 +61,10 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
         'to_be_logged_out',
         'provider',
         'provider_id',
+        'remember_token',
+        'deleted_at',
+        'otp_email',
+        'otp_phonenumber'
     ];
 
     /**
@@ -145,7 +151,7 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
      */
     public function canBeImpersonated(): bool
     {
-        return ! $this->isMasterAdmin();
+        return !$this->isMasterAdmin();
     }
 
     /**
