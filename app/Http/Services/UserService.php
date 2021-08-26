@@ -16,4 +16,9 @@ class UserService
     {
         return $this->responsitory->update($condiction, $update);
     }
+
+    public function checkClient($where = array())
+    {
+        return $this->responsitory->checkClient($where);
+    }
 }

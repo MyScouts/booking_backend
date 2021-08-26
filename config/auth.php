@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'client_id' => env('PASSPORT_CLIENT_ID', 2),
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -42,7 +42,7 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'passport',
             'provider' => 'users',
             'hash' => false,
         ],
