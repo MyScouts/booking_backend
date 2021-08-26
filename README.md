@@ -17,3 +17,10 @@
 8: php artisan passport:install
 Username: admin@admin.com
 Password: secret
+
+
+php artisan clear-compiled
+php artisan route:cache
+php artisan config:clear
+php artisan view:clear
+
