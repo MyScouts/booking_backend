@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\v1\Auth;
 
 use App\Domains\Auth\Models\User;
-use App\Http\Controllers\Api\v1\IssueTokenTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Services\UserService;
 use Hash;
