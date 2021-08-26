@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1;
+namespace App\Http\Controllers\Api\v1\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +35,7 @@ trait IssueTokenTrait
         }
 
         $request->request->add($params);
-        $proxy = Request::create('api/oauth/token', 'POST');
+        $proxy = Request::create('api/auth/oauth/token', 'POST');
         return Route::dispatch($proxy);
     }
 }

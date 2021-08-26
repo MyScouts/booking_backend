@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Api\Auth;
+namespace App\Http\Controllers\Api\v1\Auth;
 
+use App\Domains\Auth\Models\User;
 use App\Events\EventVerifyEmailWithOTP;
 use App\Helpers\CommonHelper;
 use App\Helpers\ResponseHelper;
 use App\Helpers\StatusCodeHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\VerifyEmailRequest;
-use App\Models\User;
 
 class AuthVerifyController extends Controller
 {
