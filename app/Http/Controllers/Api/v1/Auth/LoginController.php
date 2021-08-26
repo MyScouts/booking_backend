@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1;
+namespace App\Http\Controllers\Api\v1\Auth;
 
 use App\Helpers\ResponseHelper;
-use App\Helpers\StatusCodeHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use App\Http\Services\UserService;
-use Auth;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AuthController extends Controller
+class LoginController extends Controller
 {
     use IssueTokenTrait;
 
@@ -23,7 +22,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $login = $request->validate([
+        $request->validate([
             'email' => 'required|email',
             'password'  => 'required|string'
         ]);
