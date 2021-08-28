@@ -14,14 +14,17 @@ class VerifyPhoneNumber
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $otp;
+    public $phone;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($otp, $phone)
     {
-        //
+        $this->otp = $otp;
+        $this->phone = $phone;
     }
 
     /**

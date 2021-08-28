@@ -16,8 +16,10 @@ Route::group([
         'prefix' => 'verify',
         'middleware' => 'auth:api'
     ], function () {
+        Route::post('email', [VerifyController::class, 'onVerifyEmail']);
         Route::post('email/send', [VerifyController::class, 'sendMail']);
-        Route::post('email/verity', [VerifyController::class, 'onVerifyEmail']);
+        Route::post('phone', [VerifyController::class, 'onVerifyPhone']);
+        Route::post('phone/send', [VerifyController::class, 'sendPhone']);
     });
 
     Route::post('oauth/token',  [AccessTokenController::class, 'issueToken']);
