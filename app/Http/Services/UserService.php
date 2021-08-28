@@ -3,6 +3,7 @@
 namespace App\Http\Services;
 
 use App\Http\Responsitory\UserResponsitory;
+use Log;
 
 class UserService
 {
@@ -14,6 +15,7 @@ class UserService
 
     public function selectUpdate($condiction = [], $update = [])
     {
+        Log::info("User Service", [$condiction, $update]);
         return $this->responsitory->update($condiction, $update);
     }
 

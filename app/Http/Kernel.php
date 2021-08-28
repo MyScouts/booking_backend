@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\VerifyEmail;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 /**
@@ -86,6 +87,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'type' => \App\Domains\Auth\Http\Middleware\UserTypeCheck::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'verifyEmail'   => VerifyEmail::class
     ];
 
     /**
