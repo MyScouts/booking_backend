@@ -163,4 +163,9 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
     {
         return UserFactory::new();
     }
+
+    public function routeNotificationForNexmo($notification)
+    {
+        return $this->phone_number;
+    }
 }
