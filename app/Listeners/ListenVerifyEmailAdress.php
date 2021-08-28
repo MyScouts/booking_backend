@@ -9,6 +9,7 @@ use App\Mail\VerifyMailMessage;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
+use Log;
 
 class ListenVerifyEmailAdress
 {
@@ -32,7 +33,7 @@ class ListenVerifyEmailAdress
     public function handle(EventVerifyEmailWithOTP $event)
     {
         $result = $this->service->selectUpdate(['email' => $event->email], ['otp_email' => $event->otp]);
-
+        Log::info("SEND MAIL", ['email' => $event->email, 'otp_email' => $event->otp, 'reusult' => $result]);
         if ($result) {
             Mail::to($event->email)
                 ->send(new VerifyMailMessage($event->otp));

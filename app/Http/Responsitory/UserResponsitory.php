@@ -14,6 +14,7 @@ class UserResponsitory extends BaseResponsitory
         try {
             User::where($condiction)
                 ->update($update);
+            DB::commit();
             return true;
         } catch (\Throwable $th) {
             DB::rollBack();
