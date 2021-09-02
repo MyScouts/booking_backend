@@ -10,6 +10,7 @@ use App\Domains\Auth\Events\User\UserStatusChanged;
 use App\Domains\Auth\Events\User\UserUpdated;
 use App\Domains\Auth\Models\User;
 use App\Exceptions\GeneralException;
+use App\Responsitory\UserResponsitory;
 use App\Services\BaseService;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -25,9 +26,11 @@ class UserService extends BaseService
      *
      * @param  User  $user
      */
-    public function __construct(User $user)
+    protected $respons;
+    public function __construct(User $user, UserResponsitory $respons)
     {
         $this->model = $user;
+        $this->respons = $respons;
     }
 
     /**
@@ -338,5 +341,8 @@ class UserService extends BaseService
         return DB::table('oauth_clients')->where($where)->first();
     }
 
-
+    public function selectUpdate($condiction = [], $update = [])
+    {
+        return $this->respons->update($condiction, $update);
+    }
 }

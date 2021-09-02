@@ -3,8 +3,8 @@
 namespace App\Listeners;
 
 use App\Domains\Auth\Models\User;
+use App\Domains\Auth\Services\UserService;
 use App\Events\EventVerifyEmailWithOTP;
-use App\Http\Services\UserService;
 use App\Mail\VerifyMailMessage;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
