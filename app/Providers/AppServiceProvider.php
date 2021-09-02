@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\DB;
  */
 class AppServiceProvider extends ServiceProvider
 {
+    public $bindings = [
+        SocialUserResolverInterface::class => SocialUserResolver::class,
+    ];
+
     /**
      * Register any application services.
      *

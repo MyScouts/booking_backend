@@ -17,5 +17,5 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 require  __DIR__ . '/api/auth.php';
-require __DIR__ . '/api/user.php';
+require __DIR__ . '/api/me.php';
 require __DIR__ . '/api/room.php';
