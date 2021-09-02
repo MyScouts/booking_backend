@@ -13,18 +13,25 @@ trait IssueTokenTrait
     {
 
         $params = [
-            'grant_type' => $grantType,
-            'client_id' => $request->client_id,
+            'grant_type'    => $grantType,
+            'client_id'     => $request->client_id,
             'client_secret' => $request->client_secret,
-            'scope' => $scope,
-            'message' => $message,
-            'provider' => 'users',
-            'username' => $request->email,
-            'deviceToken' => isset($request->deviceToken) ? $request->deviceToken : '',
-            'deviceId' => isset($request->deviceId) ? $request->deviceId : '',
-            'platform' => isset($request->platform) ? $request->platform : '',
+            'message'       =>        $message,
+            'provider'      =>     $request->provider,
+            'username'      =>    $request->email
+
         ];
-        if (isset($request->provider_id) && isset($request->provider)) {
+        if ($grantType == 'password') {
+            $params['scope']        = $scope;
+            $params['deviceToken']  = isset($request->deviceToken) ? $request->deviceToken : '';
+            $params['deviceId']     = isset($request->deviceId) ? $request->deviceId : '';
+            $params['platform']     = isset($request->platform) ? $request->platform : '';
+        } else {
+            $params['access_token']     = isset($request->access_token) ? $request->access_token : '';
+        }
+
+
+        if (isset($request->provider_id) && isset($request->provider) && $grantType == 'password') {
             $params['email'] = $request->provider_id . '@' . $request->provider;
         } else {
             if (isset($request->email)) {

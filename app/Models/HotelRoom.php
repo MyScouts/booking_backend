@@ -25,4 +25,9 @@ class HotelRoom extends Model
         'create_user_id',
         'update_user_id',
     ];
+
+    public function attributes()
+    {
+        return $this->hasMany(RoomAttribute::class, 'room_id', 'id');
+    }
 }

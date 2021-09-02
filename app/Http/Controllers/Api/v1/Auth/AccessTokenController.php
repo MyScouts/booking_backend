@@ -27,14 +27,14 @@ class AccessTokenController extends ATC
             if (isset($data["error"])) {
                 return ResponseHelper::responseCallback(Response::HTTP_BAD_REQUEST, 'User not found!', false);
             }
-            if (!empty($user['id'])) {
-                $deviceToken = $request->getParsedBody()['deviceToken'];
-                $deviceId = $request->getParsedBody()['deviceId'];
-                $platform = $request->getParsedBody()['platform'];
-                if ($deviceToken != '' && $deviceId != '') {
-                    $this->insertOrUpdateDevice($user['id'], $deviceToken, $deviceId, $platform);
-                }
-            }
+            // if (!empty($user['id'])) {
+            //     $deviceToken = $request->getParsedBody()['deviceToken'];
+            //     $deviceId = $request->getParsedBody()['deviceId'];
+            //     $platform = $request->getParsedBody()['platform'];
+            //     if ($deviceToken != '' && $deviceId != '') {
+            //         $this->insertOrUpdateDevice($user['id'], $deviceToken, $deviceId, $platform);
+            //     }
+            // }
 
             $user = collect($user);
             $user->put('access_token', $data['access_token']);

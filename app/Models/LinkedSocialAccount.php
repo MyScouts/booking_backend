@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class LinkedSocialAccount extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'provider_name',
         'provider_id',
