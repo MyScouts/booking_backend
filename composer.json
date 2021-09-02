@@ -11,6 +11,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "arcanedev/log-viewer": "8.x",
+        "coderello/laravel-passport-social-grant": "^3.0",
         "darkghosthunter/laraguard": "^3.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -21,7 +22,7 @@
         "laravel/framework": "^8.40",
         "laravel/nexmo-notification-channel": "^2.5",
         "laravel/passport": "^10.1",
-        "laravel/socialite": "^5.0",
+        "laravel/socialite": "^5.2",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.0",
         "livewire/livewire": "^2.0",

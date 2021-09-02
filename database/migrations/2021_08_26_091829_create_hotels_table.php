@@ -13,6 +13,7 @@ class CreateHotelsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('hotels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
@@ -26,9 +27,9 @@ class CreateHotelsTable extends Migration
             $table->integer('unit')->nullable();
             $table->string('post_code', 10)->nullable();
             $table->text('information')->nullable();
-            $table->timestamp('delete_at')->nullable();
-            $table->timestamps();
+            $table->fullAudited();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -38,6 +39,9 @@ class CreateHotelsTable extends Migration
      */
     public function down()
     {
+
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('hotels');
+        Schema::enableForeignKeyConstraints();
     }
 }

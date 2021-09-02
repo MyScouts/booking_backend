@@ -20,8 +20,8 @@ class CreateUserBookingDetailsTable extends Migration
             $table->unsignedBigInteger('booking_id');
             $table->double('price')->default(0);
             $table->integer('unit')->nullable();
-            $table->timestamp('delete_at')->nullable();
-            $table->timestamps();
+            $table->fullAudited();
+
 
             // ForeignKey define
             $table->foreign('room_id')->references('id')->on('hotel_rooms');

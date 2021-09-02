@@ -21,9 +21,7 @@ class CreateUserBookingsTable extends Migration
             $table->timestamp('check_in_date')->nullable();
             $table->timestamp('check_out_date')->nullable();
             $table->timestamp('accept_time')->nullable();
-            $table->timestamp('delete_at')->nullable();
-            $table->timestamps();
-
+            $table->fullAudited();
             // ForeignKey Define
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('hotel_id')->references('id')->on('hotels');
@@ -38,6 +36,6 @@ class CreateUserBookingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_bookings');
+        Schema::dropIfExists('bookings');
     }
 }

@@ -20,7 +20,8 @@ class CreateRoomAttributesTable extends Migration
             $table->text('image_path')->nullable();
             $table->text('description')->nullable();
             $table->bigInteger('like')->default(0);
-            $table->timestamps();
+            $table->fullAudited();
+
 
             // ForeignKey Define
             $table->foreign('room_id')->references('id')->on('hotel_rooms');

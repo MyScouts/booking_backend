@@ -18,7 +18,8 @@ class CreateFavoritesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('hotel_id');
-            $table->timestamps();
+            $table->fullAudited();
+
 
             // ForeignKey Define
             $table->foreign('user_id')->references('id')->on('users');
