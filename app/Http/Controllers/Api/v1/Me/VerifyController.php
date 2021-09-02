@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api\v1\Me;
 
+use App\Domains\Auth\Services\UserService;
 use App\Events\EventVerifyEmailWithOTP;
 use App\Events\VerifyPhoneNumber;
 use App\Helpers\CommonHelper;
 use App\Helpers\ResponseHelper;
 use App\Http\Controllers\Controller;
-use App\Http\Services\UserService;
 use Illuminate\Http\Request;
 use Nexmo\Laravel\Facade\Nexmo;
 use Symfony\Component\HttpFoundation\Response;

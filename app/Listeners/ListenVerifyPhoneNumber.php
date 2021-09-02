@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
+use App\Domains\Auth\Services\UserService;
 use App\Events\VerifyPhoneNumber;
-use App\Http\Services\UserService;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Log;
