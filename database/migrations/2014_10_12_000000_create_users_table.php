@@ -30,10 +30,15 @@ class CreateUsersTable extends Migration
             $table->boolean('to_be_logged_out')->default(false);
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
+            $table->integer('otp_email')->nullable();
+            $table->integer('otp_phonenumber')->nullable();
+            $table->timestamp('verify_phone_at')->nullable();
+            $table->string('phone_number', 15)->nullable();
+
             $table->rememberToken();
-            $table->timestamps();
-            $table->softDeletes();
+            $table->fullAudited();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -43,6 +48,9 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('users');
+        Schema::enableForeignKeyConstraints();
     }
 }

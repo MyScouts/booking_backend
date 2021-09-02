@@ -18,8 +18,8 @@ class CreateReportsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('hotel_id');
-            $table->timestamp('delete_at')->nullable();
-            $table->timestamps();
+            $table->fullAudited();
+
 
             // ForeignKey Define
             $table->foreign('user_id')->references('id')->on('users');

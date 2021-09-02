@@ -19,14 +19,14 @@ class CreateHotelRoomsTable extends Migration
             $table->unsignedBigInteger('hotel_id');
             $table->double('price')->default(0);
             $table->integer('unit')->nullable();
-            $table->integer('room_id')->default(0);
+            $table->string('room_id', 20)->default(0);
             $table->text('description')->nullable();
             $table->bigInteger('rating')->default(0);
             $table->integer('people_of_room')->default(0);
             $table->integer('total_bed')->default(0);
             $table->text('category')->nullable();
-            $table->timestamp('delete_at')->nullable();
-            $table->timestamps();
+            $table->fullAudited();
+
 
             //
             $table->foreign('hotel_id')->references('id')->on('hotels');
