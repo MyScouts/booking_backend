@@ -22,7 +22,8 @@ Route::group([
         Route::post('phone/send', [VerifyController::class, 'sendPhone']);
     });
 
-    Route::post('oauth/token',  [AccessTokenController::class, 'issueToken']);
+    Route::post('social/login', [LoginController::class, 'socialLogin']);
+    Route::post('oauth/token',   [AccessTokenController::class, 'issueToken']);
     Route::post('login',        [LoginController::class, 'login']);
     Route::post('register',     [RegisterController::class, 'register']);
     Route::post('refresh',      [RefreshController::class, 'refresh']);

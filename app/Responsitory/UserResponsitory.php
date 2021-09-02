@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Responsitory;
+namespace App\Responsitory;
 
 use App\Domains\Auth\Models\User;
 use Illuminate\Support\Facades\DB;

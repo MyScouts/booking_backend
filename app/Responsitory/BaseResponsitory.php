@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Responsitory;
+namespace App\Responsitory;
 
 class BaseResponsitory
 {

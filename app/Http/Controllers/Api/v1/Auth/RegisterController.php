@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api\v1\Auth;
 
 use App\Domains\Auth\Models\User;
+use App\Domains\Auth\Services\UserService;
+use App\Helpers\ResponseHelper;
 use App\Http\Controllers\Controller;
-use App\Http\Services\UserService;
 use Hash;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class RegisterController extends Controller
 {
@@ -40,7 +42,7 @@ class RegisterController extends Controller
                 $result = User::insert($user);
                 return $this->issueToken($request, 'password', '', '', 0);
             } catch (\Throwable $th) {
-                //throw $th;
+                return ResponseHelper::responseCallback(Response::HTTP_OK, $th->getMessage(), false);
             }
         }
     }
