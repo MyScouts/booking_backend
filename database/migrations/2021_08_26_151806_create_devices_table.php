@@ -20,7 +20,8 @@ class CreateDevicesTable extends Migration
             $table->text('device_token')->nullable();
             $table->string('device_id')->nullable();
             $table->string('device_type')->nullable();
-            $table->timestamps();
+            $table->fullAudited();
+
         });
     }
 

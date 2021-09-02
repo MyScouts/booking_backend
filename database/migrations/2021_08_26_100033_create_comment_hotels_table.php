@@ -20,8 +20,7 @@ class CreateCommentHotelsTable extends Migration
             $table->unsignedBigInteger('hotel_id');
             $table->text('title')->nullable();
             $table->text('content')->nullable();
-            $table->timestamp('delete_at')->nullable();
-            $table->timestamps();
+            $table->fullAudited();
 
             // ForeignKey Define
             $table->foreign('user_id')->references('id')->on('users');
