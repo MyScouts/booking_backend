@@ -174,4 +174,12 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
     {
         return $this->hasMany(LinkedSocialAccount::class);
     }
+
+    public function isUser(): bool
+    {
+        if ($this->type == self::TYPE_USER) {
+            return true;
+        }
+        return false;
+    }
 }
