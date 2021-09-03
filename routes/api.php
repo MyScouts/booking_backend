@@ -19,3 +19,4 @@ use Illuminate\Http\Request;
 require  __DIR__ . '/api/auth.php';
 require __DIR__ . '/api/me.php';
 require __DIR__ . '/api/room.php';
+require __DIR__ . '/api/hotel.php';

@@ -8,6 +8,7 @@ use App\Domains\Auth\Models\Traits\Relationship\UserRelationship;
 use App\Domains\Auth\Models\Traits\Scope\UserScope;
 use App\Domains\Auth\Notifications\Frontend\ResetPasswordNotification;
 use App\Domains\Auth\Notifications\Frontend\VerifyEmail;
+use App\Models\Booking;
 use App\Models\LinkedSocialAccount;
 use DarkGhostHunter\Laraguard\Contracts\TwoFactorAuthenticatable;
 use DarkGhostHunter\Laraguard\TwoFactorAuthentication;
@@ -181,5 +182,11 @@ class User extends Authenticatable implements MustVerifyEmail, TwoFactorAuthenti
             return true;
         }
         return false;
+    }
+
+
+    public function myBooking()
+    {
+        return $this->hasMany(Booking::class, 'user_id', 'id');
     }
 }
