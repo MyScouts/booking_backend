@@ -15,4 +15,14 @@ class RoomResponsitory extends BaseResponsitory
 
         return $rooms;
     }
+
+    public function selectRoomIsValid($roomIds = [], $hotelId)
+    {
+        $count = HotelRoom::whereIn('id', $roomIds)
+            ->whereNull('deleted_at')
+            ->where('hotel_id', $hotelId)
+            ->count();
+
+        return $count;
+    }
 }

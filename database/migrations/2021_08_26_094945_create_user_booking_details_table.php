@@ -14,7 +14,7 @@ class CreateUserBookingDetailsTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('user_booking_details', function (Blueprint $table) {
+        Schema::create('booking_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('room_id');
             $table->unsignedBigInteger('booking_id');
@@ -38,5 +38,6 @@ class CreateUserBookingDetailsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('user_booking_details');
+        Schema::dropIfExists('booking_details');
     }
 }
