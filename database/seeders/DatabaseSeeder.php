@@ -33,11 +33,10 @@ class DatabaseSeeder extends Seeder
         // $this->call(AuthSeeder::class);
         // $this->call(AnnouncementSeeder::class);
 
-        // Hotel::factory()->count(50)->create();
-        // HotelAttribute::factory()->count(150)->create();
-        // HotelRoom::factory()->count(100)->create();
+        Hotel::factory()->count(50)->create();
+        HotelAttribute::factory()->count(150)->create();
+        HotelRoom::factory()->count(100)->create();
         RoomAttribute::factory()->count(300)->create();
-
-        // Model::reguard();
+        Model::reguard();
     }
 }

@@ -16,9 +16,9 @@ trait IssueTokenTrait
             'grant_type'    => $grantType,
             'client_id'     => $request->client_id,
             'client_secret' => $request->client_secret,
-            'message'       =>        $message,
-            'provider'      =>     $request->provider,
-            'username'      =>    $request->email
+            'message'       => $message,
+            'provider'      => $request->provider,
+            'username'      => $request->email
 
         ];
         if ($grantType == 'password') {

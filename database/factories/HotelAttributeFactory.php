@@ -24,7 +24,7 @@ class HotelAttributeFactory extends Factory
     {
         $filepath = storage_path('images/hotels');
         if (!File::exists($filepath)) {
-            File::makeDirectory($filepath);
+            File::makeDirectory($filepath, 0755, true, true);
         }
 
         return [

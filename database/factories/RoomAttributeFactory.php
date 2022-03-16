@@ -24,7 +24,7 @@ class RoomAttributeFactory extends Factory
     {
         $filepath = storage_path('images/rooms');
         if (!File::exists($filepath)) {
-            File::makeDirectory($filepath);
+            File::makeDirectory($filepath, 0755, true, true);
         }
 
         return [

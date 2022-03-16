@@ -17,6 +17,7 @@ class AccessTokenController extends ATC
     public function issueToken(ServerRequestInterface $request)
     {
         try {
+
             $email = $request->getParsedBody()['email'];
             $message = $request->getParsedBody()['message'];
             $user = User::where('email', $email)->first();
@@ -37,8 +38,8 @@ class AccessTokenController extends ATC
             // }
 
             $user = collect($user);
-            $user->put('access_token', $data['access_token']);
-            $user->put('refresh_token', $data['refresh_token']);
+            $user->put('accessToken', $data['access_token']);
+            $user->put('refreshToken', $data['refresh_token']);
             return ResponseHelper::responseCallback(Response::HTTP_OK, 'Login is successfull!', true, $user);
         } catch (ModelNotFoundException $e) {
         } catch (OAuthServerException $e) {

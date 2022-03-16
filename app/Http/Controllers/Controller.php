@@ -18,11 +18,22 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    /**
+     * get user logined
+     *
+     * @return void
+     */
     public function getUser()
     {
         return auth()->user();
     }
 
+    /**
+     * validator
+     *
+     * @param  Request $request
+     * @return void
+     */
     public function searchValidator(Request $request)
     {
         $validator = Validator::make($request->all(), [
